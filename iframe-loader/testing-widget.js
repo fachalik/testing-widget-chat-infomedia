@@ -144,7 +144,7 @@ function widgetApi() {
       onHide: () => {},
     };
 
-    const widgetAddress = "https://widget-chat-infomedia.vercel.app";
+    const widgetAddress = "https://widget-infomedia-v2.netlify.app";
 
     iframe.addEventListener("load", () => {
       window.addEventListener("getWidgetApi", () => {
@@ -175,13 +175,15 @@ function widgetApi() {
       widgetStyle.display = "block";
     });
 
-    const license = script.getAttribute("data-license");
+    // change this code ...
     const PRIMARY_COLOR = "EB1C24";
     const SECONDARY_COLOR = "929497";
     const logo = "https://www.infomedia.co.id/chat/assets/img/header_logo.png";
-    const postLoginToken = null;
+    const loadingLogo =
+      "https://www.infomedia.co.id/wp-content/uploads/2020/09/infomedia_logo.png";
+
     // const widgetUrl = `${widgetAddress}/?license=${license}&primaryColor=${PRIMARY_COLOR}&secondarColor=${SECONDARY_COLOR}`;
-    const widgetUrl = `${widgetAddress}/?license=${license}&primaryColor=${PRIMARY_COLOR}&secondaryColor=${SECONDARY_COLOR}&logo=${logo}&postLoginToken=${postLoginToken}`;
+    const widgetUrl = `${widgetAddress}/?license=${license}&primaryColor=${PRIMARY_COLOR}&secondaryColor=${SECONDARY_COLOR}&logo=${logo}&loadingLogo=${loadingLogo}&postLoginToken=${postLoginToken}`;
 
     iframe.src = widgetUrl;
     iframe.allow = "geolocation";
