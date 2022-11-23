@@ -175,6 +175,9 @@ function widgetApi() {
       widgetStyle.display = "block";
     });
 
+    const license = script.getAttribute("data-license");
+    const postLoginToken = null;
+
     // change this code ...
     const PRIMARY_COLOR = "EB1C24";
     const SECONDARY_COLOR = "929497";
