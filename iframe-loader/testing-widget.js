@@ -122,18 +122,14 @@ function widgetApi() {
           widgetStyle.right = "0px";
         } else {
           widgetStyle.width = "400px";
-          widgetStyle.height = "calc(100% - 100px)";
+          widgetStyle.height = "calc(100% - 10px)";
         }
-        // widgetStyle.boxShadow = "-1px 0px 11px -2px rgba(0,0,0,0.81)";
-        // widgetStyle.borderRadius = "15px";
       },
 
       hide: () => {
         widgetStyle.width = "212px";
         widgetStyle.height = "204px";
         widgetStyle.borderRadius = "15px";
-        // widgetStyle.boxShadow = "";
-        // widget.style.display = "none";
       },
 
       toggle: () => {
@@ -144,7 +140,8 @@ function widgetApi() {
       onHide: () => {},
     };
 
-    const widgetAddress = "https://widget-infomedia-v2.netlify.app";
+    // ** just change this
+    const widgetAddress = "http://localhost:5173";
 
     iframe.addEventListener("load", () => {
       window.addEventListener("getWidgetApi", () => {
@@ -153,21 +150,18 @@ function widgetApi() {
       });
 
       window.addEventListener("message", (evt) => {
-        // console.log("MainColor", MainColor);
-        // console.log("loader", evt);
-
         if (evt.origin !== widgetAddress) {
           return;
         }
+
         if (evt.data === "hide") {
           api.hide();
-          api.onHide();
-          // console.log('hit')
+          console.log("hit");
         }
+
         if (evt.data === "show") {
           api.show();
-          // console.log('hot')
-          // api.onHide();
+          console.log("hot");
         }
       });
 
@@ -178,15 +172,7 @@ function widgetApi() {
     const license = script.getAttribute("data-license");
     const postLoginToken = null;
 
-    // change this code ...
-    const PRIMARY_COLOR = "EB1C24";
-    const SECONDARY_COLOR = "929497";
-    const logo = "https://www.infomedia.co.id/chat/assets/img/header_logo.png";
-    const loadingLogo =
-      "https://www.infomedia.co.id/wp-content/uploads/2020/09/infomedia_logo.png";
-
-    // const widgetUrl = `${widgetAddress}/?license=${license}&primaryColor=${PRIMARY_COLOR}&secondarColor=${SECONDARY_COLOR}`;
-    const widgetUrl = `${widgetAddress}/?license=${license}&primaryColor=${PRIMARY_COLOR}&secondaryColor=${SECONDARY_COLOR}&logo=${logo}&loadingLogo=${loadingLogo}&postLoginToken=${postLoginToken}`;
+    const widgetUrl = `${widgetAddress}/?license=${license}&postLoginToken=${postLoginToken}`;
 
     iframe.src = widgetUrl;
     iframe.allow = "geolocation";
