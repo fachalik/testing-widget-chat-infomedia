@@ -83,6 +83,7 @@ function widgetApi() {
     widgetStyle.right = "10px";
     widgetStyle.borderRadius = "15px";
     widgetStyle.zIndex = 99;
+    widgetStyle.transition = "all 200ms ease-in-out";
 
     const iframe = document.createElement("iframe");
 
@@ -141,7 +142,7 @@ function widgetApi() {
     };
 
     // ** just change this
-    const widgetAddress = "http://localhost:5173";
+    const widgetAddress = "https://widget-erajaya.netlify.app";
 
     iframe.addEventListener("load", () => {
       window.addEventListener("getWidgetApi", () => {
